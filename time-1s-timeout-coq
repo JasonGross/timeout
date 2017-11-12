@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# 5 minute limit per build
+# -c for confess, i.e., exit with a code if we kill the process
+"$DIR"/timeout -m 30000000 -t 1 -c /usr/bin/time "$@" || exit $?
